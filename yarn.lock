@@ -9593,6 +9593,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-modak@^0.0.71:
+  version "0.0.71"
+  resolved "https://registry.yarnpkg.com/typeface-modak/-/typeface-modak-0.0.71.tgz#be3f125e25e5f407b2ac5f4f101a91448248080f"
+  integrity sha512-xTaeytJ+BXL0jWcouwSwUw0tVW3L7C7GlH4yC8qzBNMhGv8M6F9ehIPtt46awuHarWMSEm0AXM/fHZSERj8i/Q==
+
 typeface-pacifico@^0.0.76:
   version "0.0.76"
   resolved "https://registry.yarnpkg.com/typeface-pacifico/-/typeface-pacifico-0.0.76.tgz#668fafba82bb70f012d630b6296a7a39e84e742d"

@@ -1,55 +1,75 @@
 import React, { useState, useEffect, FC } from 'react';
 import { motion } from 'framer-motion';
-import styled, {
-  css,
-  FlattenSimpleInterpolation,
-  CSSProperties
-} from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
+import 'typeface-modak';
 
 interface SLProps {
+  renderRole: StyledComponent<'div', any, {}, never>;
   role: string;
-  roleStyling: CSSProperties;
   emoji: string;
   text: string;
 }
 
-const StatementLine: FC<SLProps> = ({ role, roleStyling, emoji, text }) => (
-  <span>
-    <span style={roleStyling}>{role}</span>
-    {emoji}
-    {text}
-  </span>
+const Emoji = styled.div`
+  font-size: 5rem;
+`;
+
+const Text = styled.div`
+  color: hsl(0, 0%, 60%);
+  text-transform: none;
+`;
+
+const RoleEmojiContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+`;
+
+const StatementLine: FC<SLProps> = ({
+  renderRole: RenderRole,
+  role,
+  emoji,
+  text
+}) => (
+  <>
+    <RoleEmojiContainer>
+      <RenderRole>{role}</RenderRole>
+      <Emoji>{emoji}</Emoji>
+    </RoleEmojiContainer>
+    <Text>{text}</Text>
+  </>
 );
 
 const statements = [
   <StatementLine
-    roleStyling={{ fontSize: '30rem' }}
+    renderRole={styled.div`
+      font-family: Modak;
+      font-weight: normal;
+    `}
     role="frontend developer"
-    emoji="🙋🏼‍♂️"
+    emoji="🤝"
     text="connecting the user with the application"
+  />,
+  <StatementLine
+    renderRole={styled.div``}
+    role="backend developer"
+    emoji="🙋🏼‍♂️"
+    text="implementing the crucial business logic"
+  />,
+  <StatementLine
+    renderRole={styled.div``}
+    role="database wizard"
+    emoji=" 🧙🏼‍♂️ "
+    text="writing blazing fast queries"
+  />,
+  <StatementLine
+    renderRole={styled.div`
+      font-family: Pacifico;
+    `}
+    role="learning designer"
+    emoji=" 👨🏻‍🎨 "
+    text="who strives for beautiful creations"
   />
-  //   <StatementLine
-  //     role="backend developer"
-  //     roleStyling="font-size: 30rem;"
-  //     emoji="👨🏼‍💻"
-  //     text="implementing the crucial business logic"
-  //   />,
-  //   <StatementLine
-  //     role="database wizard"
-  //     roleStyling={css`
-  //       font-size: 30rem;
-  //     `}
-  //     emoji=" 🧙🏼‍♂️ "
-  //     text="writing blazing fast queries"
-  //   />,
-  //   <StatementLine
-  //     role="learning designer"
-  //     roleStyling={css`
-  //       font-size: 30rem;
-  //     `}
-  //     emoji=" 👨🏻‍🎨 "
-  //     text="who strives for beautiful creations"
-  //   />
 ];
 
 const Container = styled.div`
@@ -57,14 +77,20 @@ const Container = styled.div`
   height: 300px;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
   font-size: 3rem;
   font-weight: 800;
+
+  > * {
+    padding: 1rem;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 const MotionDiv = styled(motion.div)`
-  max-width: 50%;
-  text-align: center;
+  /* max-width: 50%; */
 `;
 
 const animationDuration = 5;
@@ -84,8 +110,8 @@ const Statement = () => {
 
   return (
     <Container>
-      I am a&nbsp;
-      <MotionDiv
+      <div>I am a&nbsp;</div>
+      <motion.div
         animate={{
           y: [-10, 0, 0, 0, 10],
           opacity: [0, 1, 1, 1, 0]
@@ -97,7 +123,7 @@ const Statement = () => {
         }}
       >
         {statements[index]}
-      </MotionDiv>
+      </motion.div>
     </Container>
   );
 };
