@@ -1,28 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion, TargetAndTransition } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, Variants } from 'framer-motion';
 
-const Image = styled(motion.img)`
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-`;
-
-const onHoverOptions: TargetAndTransition = {
-  scale: 3,
-  y: '100%',
-  x: '100%',
-  borderRadius: '10%',
-  boxShadow: '5px 5px 10px 0px rgba(0,0,0,0.75)'
+const imageVariants: Variants = {
+  open: {
+    borderRadius: '30%',
+    width: '100%',
+    transition: {
+      type: 'spring',
+      stiffness: 20,
+      restDelta: 1
+    }
+  },
+  closed: {
+    width: '100px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+    cursor: 'pointer',
+    transition: {
+      type: 'spring',
+      stiffness: 400,
+      damping: 40
+    }
+  }
 };
 
-const transitionOptions = { mass: 0.5 };
-
 const ProfileImage = () => {
+  const [isOpen, setOpen] = useState(false);
   return (
-    <Image
-      transition={transitionOptions}
-      whileHover={onHoverOptions}
+    <motion.img
+      animate={isOpen ? 'open' : 'closed'}
+      variants={imageVariants}
+      onTap={() => setOpen(!isOpen)}
       src={process.env.PUBLIC_URL + '/profile.jpg'}
       alt="Profile Picture"
     />
