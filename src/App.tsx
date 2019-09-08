@@ -1,8 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Header from './components/Header';
 import GlobalStyle, { theme } from './GlobalStyle';
+import Header from './components/Header';
+import Statement from './components/Statement';
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <>
         <GlobalStyle />
         <Header />
+        <Statement />
       </>
     </ThemeProvider>
   );
