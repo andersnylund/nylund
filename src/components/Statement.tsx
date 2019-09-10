@@ -1,7 +1,9 @@
-import React, { useState, useEffect, FC } from 'react';
+import React, { useState, FC } from 'react';
 import { motion } from 'framer-motion';
 import styled, { StyledComponent } from 'styled-components';
 import 'typeface-modak';
+import 'typeface-vt323';
+import 'typeface-pt-mono';
 
 interface SLProps {
   renderRole: StyledComponent<'div', any, {}, never>;
@@ -23,6 +25,7 @@ const RoleEmojiContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 4rem;
+  font-weight: normal;
 `;
 
 const StatementLine: FC<SLProps> = ({
@@ -33,7 +36,7 @@ const StatementLine: FC<SLProps> = ({
 }) => (
   <>
     <RoleEmojiContainer>
-      <RenderRole>{role}</RenderRole>
+      <RenderRole>{role}</RenderRole>&nbsp;
       <Emoji>{emoji}</Emoji>
     </RoleEmojiContainer>
     <Text>{text}</Text>
@@ -44,20 +47,23 @@ const statements = [
   <StatementLine
     renderRole={styled.div`
       font-family: Modak;
-      font-weight: normal;
     `}
     role="frontend developer"
     emoji="🤝"
     text="connecting the user with the application"
   />,
   <StatementLine
-    renderRole={styled.div``}
+    renderRole={styled.div`
+      font-family: PT mono;
+    `}
     role="backend developer"
     emoji="🙋🏼‍♂️"
     text="implementing the crucial business logic"
   />,
   <StatementLine
-    renderRole={styled.div``}
+    renderRole={styled.div`
+      font-family: VT323;
+    `}
     role="database wizard"
     emoji=" 🧙🏼‍♂️ "
     text="writing blazing fast queries"
@@ -89,37 +95,34 @@ const Container = styled.div`
   }
 `;
 
-const MotionDiv = styled(motion.div)`
-  /* max-width: 50%; */
-`;
-
-const animationDuration = 5;
+const animationDuration = 3;
+const yValue = 30;
 
 const Statement = () => {
   const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (index < statements.length - 1) {
-        setIndex(index + 1);
-      } else {
-        setIndex(0);
-      }
-    }, animationDuration * 1000);
-    return () => clearInterval(interval);
-  }, [index]);
 
   return (
     <Container>
       <div>I am a&nbsp;</div>
       <motion.div
         animate={{
-          y: [-10, 0, 0, 0, 10],
+          y: [-yValue, 0, 0, 0, yValue],
           opacity: [0, 1, 1, 1, 0]
         }}
         transition={{
           duration: animationDuration - 1,
           loop: Infinity,
           repeatDelay: 1
+        }}
+        onUpdate={latest => {
+          if (latest.y !== yValue) {
+            return;
+          }
+          if (index < statements.length - 1) {
+            setIndex(index => index + 1);
+          } else {
+            setIndex(0);
+          }
         }}
       >
         {statements[index]}

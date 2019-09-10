@@ -16,7 +16,9 @@
     "styled-components": "^4.3.2",
     "typeface-modak": "^0.0.71",
     "typeface-pacifico": "^0.0.76",
+    "typeface-pt-mono": "^0.0.72",
     "typeface-roboto": "^0.0.75",
+    "typeface-vt323": "^0.0.72",
     "typescript": "3.6.2"
   },
   "scripts": {

@@ -9603,10 +9603,20 @@ typeface-pacifico@^0.0.76:
   resolved "https://registry.yarnpkg.com/typeface-pacifico/-/typeface-pacifico-0.0.76.tgz#668fafba82bb70f012d630b6296a7a39e84e742d"
   integrity sha512-yvFzkyKZaXKs0EkKrNU3B+M/cq5p2G5dSV3tKftVqNxRGm4uBpmceG2tLfrG5o1p6qklVAIascpbCrX0DAd6gg==
 
+typeface-pt-mono@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-pt-mono/-/typeface-pt-mono-0.0.72.tgz#1ce4a636d335c77bb01712ba136a99f764647a04"
+  integrity sha512-7AMVSvB0oT2TDPyCJlVKSIxPjspI08Rlhg/SEUwQORSyalZgtSt2pDJEvVZuJbBIak70oB2ts6vL4iunYPUGKA==
+
 typeface-roboto@^0.0.75:
   version "0.0.75"
   resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.75.tgz#98d5ba35ec234bbc7172374c8297277099cc712b"
   integrity sha512-VrR/IiH00Z1tFP4vDGfwZ1esNqTiDMchBEXYY9kilT6wRGgFoCAlgkEUMHb1E3mB0FsfZhv756IF0+R+SFPfdg==
+
+typeface-vt323@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-vt323/-/typeface-vt323-0.0.72.tgz#795475d3540610754db5e366dccac612c29ee4c8"
+  integrity sha512-yXVY4/iVgQDnE397T3mgXhhUSRk1vt8lmz5BlpGDlRR78BHXfuzg03UZ/owG5b8YbUFrLekDDy8MGTXRNhqi/Q==
 
 typescript@3.6.2:
   version "3.6.2"
