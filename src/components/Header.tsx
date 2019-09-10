@@ -18,6 +18,7 @@ const Container = styled(motion.header)`
   justify-content: space-between;
   font-size: 3rem;
   padding: 1rem;
+  margin-bottom: 3rem;
 `;
 
 const Link = styled(motion.a)`
