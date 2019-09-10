@@ -10,23 +10,21 @@ interface SLProps {
 
 const Container = styled.div`
   max-width: 600px;
-  background-color: red;
-`;
-
-const RoleEmojiContainer = styled.div`
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
   font-size: 4rem;
   font-weight: normal;
 `;
 
 const Emoji = styled.div`
   font-size: 5rem;
+  line-height: 200%;
 `;
 
 const Text = styled.div`
-  color: hsl(0, 0%, 60%);
+  color: hsl(0, 0%, 40%);
   text-transform: none;
+  font-size: 3rem;
+  font-weight: bold;
 `;
 
 const StatementLine: FC<SLProps> = ({
@@ -36,10 +34,8 @@ const StatementLine: FC<SLProps> = ({
   text
 }) => (
   <Container>
-    <RoleEmojiContainer>
-      <RenderRole>{role}</RenderRole>&nbsp;
-      <Emoji>{emoji}</Emoji>
-    </RoleEmojiContainer>
+    <RenderRole>{role}</RenderRole>
+    <Emoji>{emoji}</Emoji>
     <Text>{text}</Text>
   </Container>
 );

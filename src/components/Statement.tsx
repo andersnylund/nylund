@@ -10,12 +10,11 @@ import styled from 'styled-components';
 import statementList from './StatementList';
 
 const Container = styled.div`
-  display: flex;
+  margin: 0 auto;
   height: 300px;
-  justify-content: center;
-  align-items: center;
   font-size: 3rem;
   font-weight: 800;
+  text-align: center;
 
   > * {
     padding: 1rem;
