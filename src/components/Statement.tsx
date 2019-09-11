@@ -11,17 +11,12 @@ import statementList from './StatementList';
 
 const Container = styled.div`
   margin: 0 auto;
-  height: 300px;
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
 
   > * {
     padding: 1rem;
-  }
-
-  @media (max-width: 700px) {
-    flex-direction: column;
   }
 `;
 

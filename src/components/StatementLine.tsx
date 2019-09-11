@@ -13,6 +13,10 @@ const Container = styled.div`
   margin: 0 auto;
   font-size: 4rem;
   font-weight: normal;
+
+  @media (max-width: 400px) {
+    font-size: 3rem;
+  }
 `;
 
 const Emoji = styled.div`
@@ -21,10 +25,12 @@ const Emoji = styled.div`
 `;
 
 const Text = styled.div`
+  margin: 0 auto;
   color: hsl(0, 0%, 40%);
   text-transform: none;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
+  max-width: 400px;
 `;
 
 const StatementLine: FC<SLProps> = ({

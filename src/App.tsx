@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
+import 'normalize.css';
 
 import GlobalStyle, { colors } from './GlobalStyle';
 import Header from './components/Header';

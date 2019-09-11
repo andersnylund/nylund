@@ -9,9 +9,15 @@ export const colors = {
 };
 
 const GlobalStyle = createGlobalStyle`
-    body {    
-        font-family: Roboto;
-    }
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {    
+    font-family: Roboto;
+  }
 `;
 
 export default GlobalStyle;
