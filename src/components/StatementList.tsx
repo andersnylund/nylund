@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import 'typeface-pacifico';
 import 'typeface-modak';
 import 'typeface-vt323';
 import 'typeface-pt-mono';

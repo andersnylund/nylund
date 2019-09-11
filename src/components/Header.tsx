@@ -4,13 +4,13 @@ import 'typeface-pacifico';
 import { motion, Variants } from 'framer-motion';
 
 import ProfileImage from './ProfileImage';
-import { theme } from '../GlobalStyle';
+import { colors } from '../GlobalStyle';
 
 const Container = styled(motion.header)`
   font-family: 'Pacifico';
   * {
     text-decoration: none;
-    color: ${props => props.theme.pink};
+    color: ${colors.pink};
   }
 
   display: flex;
@@ -32,7 +32,7 @@ const AnimatedLink: React.FC<{ href: string }> = props => (
     {...props}
     whileHover={{
       scale: 1.05,
-      textShadow: `2px 2px 4px ${theme.darkPink}`
+      textShadow: `${colors.darkPink} 2px 2px 4px`
     }}
     whileTap={{ scale: 0.95 }}
   />

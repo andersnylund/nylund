@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
+import { colors } from '../GlobalStyle';
 
 const imageVariants: Variants = {
   open: {
@@ -31,6 +32,9 @@ const ProfileImage = () => {
       animate={isOpen ? 'open' : 'closed'}
       variants={imageVariants}
       onTap={() => setOpen(!isOpen)}
+      whileHover={{
+        boxShadow: `${colors.darkPink} 2px 2px 4px`
+      }}
       src={process.env.PUBLIC_URL + '/profile.jpg'}
       alt="Profile Picture"
     />
