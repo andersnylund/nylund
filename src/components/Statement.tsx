@@ -25,8 +25,6 @@ const Container = styled.div`
   }
 `;
 
-const animationDuration = 3;
-
 const yValue = 30;
 
 const animateOptions: TargetAndTransition = {
@@ -34,13 +32,15 @@ const animateOptions: TargetAndTransition = {
   opacity: [0, 1, 1, 1, 0]
 };
 
-const transitionOptions: Orchestration & Tween = {
-  duration: animationDuration - 1,
+const transitionOptions: (animationNumber: number) => Orchestration & Tween = (
+  animationDuration: number
+) => ({
+  duration: animationDuration,
   loop: Infinity,
-  repeatDelay: 1
-};
+  repeatDelay: animationDuration / 5
+});
 
-const Statement = () => {
+const Statement = ({ animationDuration = 3 }) => {
   const [index, setIndex] = useState(0);
 
   const handleUpdate = (latest: { [key: string]: React.ReactText }) => {
@@ -59,7 +59,7 @@ const Statement = () => {
       <div>I am a&nbsp;</div>
       <motion.div
         animate={animateOptions}
-        transition={transitionOptions}
+        transition={transitionOptions(animationDuration)}
         onUpdate={handleUpdate}
       >
         {statementList[index]}

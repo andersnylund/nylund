@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^9.1.4"
+    "@testing-library/react": "^9.1.4",
+    "waait": "^1.0.5"
   }
 }
