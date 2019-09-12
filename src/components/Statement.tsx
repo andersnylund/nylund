@@ -9,11 +9,12 @@ import styled from 'styled-components';
 
 import statementList from './StatementList';
 
-const Container = styled.div`
+const Container = styled.section`
   margin: 0 auto;
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
+  min-height: 100vh;
 
   > * {
     padding: 1rem;

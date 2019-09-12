@@ -6,6 +6,7 @@ import 'normalize.css';
 import GlobalStyle, { colors } from './GlobalStyle';
 import Header from './components/Header';
 import Statement from './components/Statement';
+import Links from './components/Links';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <GlobalStyle />
         <Header />
         <Statement />
+        <Links />
       </Container>
     </ThemeProvider>
   );
