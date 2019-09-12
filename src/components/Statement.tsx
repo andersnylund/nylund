@@ -9,16 +9,18 @@ import styled from 'styled-components';
 
 import statementList from './StatementList';
 
-const Container = styled.section`
-  margin: 0 auto;
+const Box = styled.section`
   font-size: 3rem;
   font-weight: 800;
   text-align: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-  > * {
-    padding: 1rem;
-  }
+const Item = styled.div`
+  height: 500px;
 `;
 
 const yValue = 30;
@@ -51,16 +53,18 @@ const Statement = ({ animationDuration = 3 }) => {
   };
 
   return (
-    <Container>
-      <div>I am a&nbsp;</div>
-      <motion.div
-        animate={animateOptions}
-        transition={transitionOptions(animationDuration)}
-        onUpdate={handleUpdate}
-      >
-        {statementList[index]}
-      </motion.div>
-    </Container>
+    <Box>
+      <Item>
+        <div>I am a&nbsp;</div>
+        <motion.div
+          animate={animateOptions}
+          transition={transitionOptions(animationDuration)}
+          onUpdate={handleUpdate}
+        >
+          {statementList[index]}
+        </motion.div>
+      </Item>
+    </Box>
   );
 };
 
