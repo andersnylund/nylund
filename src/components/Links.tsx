@@ -20,7 +20,11 @@ const Link = styled(motion.a)`
   display: block;
 `;
 
-const Svg: FC<{ path: JSX.Element; href: string }> = ({ path, href }) => (
+const Svg: FC<{ path: JSX.Element; href: string; ariaLabel: string }> = ({
+  path,
+  href,
+  ariaLabel: alt
+}) => (
   <Link
     initial={{
       scale: 1,
@@ -31,7 +35,7 @@ const Svg: FC<{ path: JSX.Element; href: string }> = ({ path, href }) => (
       fill: '#333'
     }}
     href={href}
-    target="_blank"
+    aria-label={alt}
   >
     <svg
       height="100%"
@@ -48,6 +52,7 @@ const Svg: FC<{ path: JSX.Element; href: string }> = ({ path, href }) => (
 const P = styled(motion.p)`
   font-size: 2rem;
   font-weight: bold;
+  text-shadow: ${props => props.theme.black} 1px 1px 1px;
 `;
 
 const SvgContainer = styled(motion.p)`
@@ -60,8 +65,13 @@ const SvgContainer = styled(motion.p)`
 const Container = styled.section`
   padding: 1rem;
   text-align: center;
-  min-height: 80vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+const Sensor = styled.div``;
 
 const containerVariants: Variants = {
   hidden: {
@@ -75,30 +85,37 @@ const containerVariants: Variants = {
 };
 
 const Links = () => (
-  <VisibilitySensor>
-    {({ isVisible }) => {
-      return (
-        <Container>
-          <P
-            variants={containerVariants}
-            animate={isVisible ? 'visible' : 'hidden'}
-          >
-            Take a look at what I've been doing lately
-          </P>
-          <SvgContainer
-            variants={containerVariants}
-            animate={isVisible ? 'visible' : 'hidden'}
-          >
-            <Svg path={gitHubPath} href="https://github.com/andersnylund" />
-            <Svg
-              path={linkedInPath}
-              href="https://www.linkedin.com/in/andersnylund/"
-            />
-          </SvgContainer>
-        </Container>
-      );
-    }}
-  </VisibilitySensor>
+  <Container>
+    <VisibilitySensor>
+      {({ isVisible }) => {
+        return (
+          <Sensor>
+            <P
+              variants={containerVariants}
+              animate={isVisible ? 'visible' : 'hidden'}
+            >
+              Take a look at what I've been doing lately
+            </P>
+            <SvgContainer
+              variants={containerVariants}
+              animate={isVisible ? 'visible' : 'hidden'}
+            >
+              <Svg
+                path={gitHubPath}
+                href="https://github.com/andersnylund"
+                ariaLabel="Link to GitHub"
+              />
+              <Svg
+                path={linkedInPath}
+                href="https://www.linkedin.com/in/andersnylund/"
+                ariaLabel="Link to LinkedIn"
+              />
+            </SvgContainer>
+          </Sensor>
+        );
+      }}
+    </VisibilitySensor>
+  </Container>
 );
 
 export default Links;
