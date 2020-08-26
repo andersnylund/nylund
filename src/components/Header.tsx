@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import 'typeface-pacifico';
 import { motion, Variants } from 'framer-motion';
@@ -27,7 +27,9 @@ const Link = styled(motion.a)`
   padding: 1rem;
 `;
 
-const AnimatedLink: React.FC<{ href: string }> = (props) => (
+const AnimatedLink: FC<{ rel?: string; target?: string; href: string }> = (
+  props
+) => (
   <Link
     {...props}
     whileHover={{
@@ -51,7 +53,11 @@ const Header = () => {
     <Container initial="hidden" animate="visible" variants={variants}>
       <ProfileImage />
       <AnimatedLink href={window.location.href}>andersnylund</AnimatedLink>
-      <AnimatedLink href="https://blog.andersnylund.com">
+      <AnimatedLink
+        target="_blank"
+        rel="noreferrer noopener"
+        href="https://blog.andersnylund.com"
+      >
         blog &gt;
       </AnimatedLink>
     </Container>
