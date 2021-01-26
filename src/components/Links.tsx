@@ -12,8 +12,8 @@ const linkedInPath = (
 );
 
 const Link = styled(motion.a)`
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   padding: 1rem;
   background-color: hsla(0, 0%, 0%, 0);
   border: none;
@@ -23,16 +23,16 @@ const Link = styled(motion.a)`
 const Svg: FC<{ path: JSX.Element; href: string; ariaLabel: string }> = ({
   path,
   href,
-  ariaLabel: alt
+  ariaLabel: alt,
 }) => (
   <Link
     initial={{
       scale: 1,
-      fill: '#111'
+      fill: '#111',
     }}
     whileHover={{
       scale: 1.05,
-      fill: '#333'
+      fill: '#333',
     }}
     href={href}
     aria-label={alt}
@@ -52,7 +52,7 @@ const Svg: FC<{ path: JSX.Element; href: string; ariaLabel: string }> = ({
 const P = styled(motion.p)`
   font-size: 2rem;
   font-weight: bold;
-  text-shadow: ${props => props.theme.black} 1px 1px 1px;
+  text-shadow: ${(props) => props.theme.black} 1px 1px 1px;
 `;
 
 const SvgContainer = styled(motion.p)`
@@ -76,18 +76,19 @@ const Sensor = styled.div``;
 const containerVariants: Variants = {
   hidden: {
     opacity: 0,
-    x: '-10%'
+    x: '-10%',
   },
   visible: {
     opacity: 1,
-    x: 0
-  }
+    x: 0,
+  },
 };
 
 const Links = () => (
   <Container>
     <VisibilitySensor>
       {({ isVisible }) => {
+        console.log('isVisible', isVisible);
         return (
           <Sensor>
             <P
