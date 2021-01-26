@@ -6,9 +6,10 @@ const ProfileImage = () => (
 );
 
 const Image = styled.img`
-  width: 100px;
   border-radius: 50%;
+  height: 100%;
   object-fit: cover;
+  width: 100px;
 `;
 
 export default ProfileImage;
