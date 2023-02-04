@@ -56,7 +56,7 @@ const Header = () => {
       <AnimatedLink
         target="_blank"
         rel="noreferrer noopener"
-        href="https://blog.andersnylund.com"
+        href="https://blog.nylund.co"
       >
         blog &gt;
       </AnimatedLink>

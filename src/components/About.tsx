@@ -91,8 +91,8 @@ const About = () => (
       </ul>
       <p>
         You can contact me at&nbsp;
-        <a className="email-link" href="mailto:anders@andersnylund.com">
-          anders@andersnylund.com
+        <a className="email-link" href="mailto:anders@nylund.co">
+          anders@nylund.co
         </a>
       </p>
     </Box>
