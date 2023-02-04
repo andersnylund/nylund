@@ -87,8 +87,7 @@ const containerVariants: Variants = {
 const Links = () => (
   <Container>
     <VisibilitySensor>
-      {({ isVisible }) => {
-        console.log('isVisible', isVisible);
+      {({ isVisible }: { isVisible: boolean }) => {
         return (
           <Sensor>
             <P

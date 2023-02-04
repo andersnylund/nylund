@@ -1,13 +1,11 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import styled from 'styled-components';
 import 'normalize.css';
-
-import GlobalStyle, { colors } from './GlobalStyle';
-import Header from './components/Header';
-import Statement from './components/Statement';
-import Links from './components/Links';
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 import About from './components/About';
+import Header from './components/Header';
+import Links from './components/Links';
+import Statement from './components/Statement';
+import GlobalStyle, { colors } from './GlobalStyle';
 
 const Container = styled.div`
   min-height: 100vh;
@@ -16,8 +14,10 @@ const Container = styled.div`
 
 const App: React.FC = () => {
   return (
+    // @ts-ignore
     <ThemeProvider theme={colors}>
       <Container>
+        {/* @ts-ignore */}
         <GlobalStyle />
         <Header />
         <Statement />

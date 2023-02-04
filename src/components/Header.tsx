@@ -1,10 +1,9 @@
-import React, { FC } from 'react';
+import { motion, Variants } from 'framer-motion';
+import React, { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import 'typeface-pacifico';
-import { motion, Variants } from 'framer-motion';
-
-import ProfileImage from './ProfileImage';
 import { colors } from '../GlobalStyle';
+import ProfileImage from './ProfileImage';
 
 const Container = styled(motion.header)`
   font-family: 'Pacifico';
@@ -27,9 +26,9 @@ const Link = styled(motion.a)`
   padding: 1rem;
 `;
 
-const AnimatedLink: FC<{ rel?: string; target?: string; href: string }> = (
-  props
-) => (
+const AnimatedLink: FC<
+  PropsWithChildren<{ rel?: string; target?: string; href: string }>
+> = (props) => (
   <Link
     {...props}
     whileHover={{
