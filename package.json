@@ -1,16 +1,17 @@
 {
-  "name": "@example/basics",
+  "name": "nylund",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.6"
+    "@astrojs/check": "^0.3.3",
+    "astro": "^4.0.5",
+    "typescript": "^5.3.3"
   }
 }
